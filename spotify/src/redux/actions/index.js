@@ -10,7 +10,7 @@ export const getSongs = () => {
         let listOfSongs = await response.json()
         dispatch({
           type: 'SET_SONGS',
-          payload: listOfSongs,
+          payload: listOfSongs.data,
         })
       }
     } catch (error) {}
@@ -25,10 +25,11 @@ export const getArtist = () => {
       )
       if (response.ok) {
         let listOfArtist = await response.json()
+        console.log(listOfArtist)
 
         dispatch({
           type: 'SET_ARTIST',
-          payload: listOfArtist,
+          payload: listOfArtist.data,
         })
       }
     } catch (error) {}
@@ -43,9 +44,14 @@ export const getAlbums = () => {
       )
       if (response.ok) {
         let listOfAlbums = await response.json()
+        console.log(listOfAlbums)
         dispatch({
           type: 'SET_ALBUMS',
-          payload: listOfAlbums,
+          payload: listOfAlbums.data,
+        })
+        dispatch({
+          type: 'FINISHED_LOADING',
+          payload: true,
         })
       }
     } catch (error) {}

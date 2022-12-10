@@ -115,9 +115,7 @@ const Sidebar = () => {
         </div>
         <div className="col-10 main-content">
           <GoodMorning />
-          <div className="row mt-3" id="mainrow">
-            <RecentlyPlayed />
-          </div>
+          <div className="row mt-3" id="mainrow"></div>
           <div className="row pl-3 mt-3" id="mainrow">
             <AlbumsToTry />
           </div>

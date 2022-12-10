@@ -1,11 +1,8 @@
 const startingState = {
-  getSongs: {
-    content: [],
-  },
-  getArtist: {
-    content: [],
-  },
+  getSongs: [],
+  getArtist: [],
   getAlbums: [],
+  finishedLoading: false,
 }
 
 const mainReducer = (state = startingState, action) => {
@@ -13,16 +10,13 @@ const mainReducer = (state = startingState, action) => {
     case 'SET_SONGS':
       return {
         ...state,
-        getSongs: {
-          content: [...state.getSongs.content, action.payload],
-        },
+        getSongs: [...state.getSongs, action.payload],
       }
+
     case 'SET_ARTIST':
       return {
         ...state,
-        getArtist: {
-          content: [...state.getArtist.content, action.payload],
-        },
+        getArtist: [...state.getArtist, action.payload],
       }
 
     case 'SET_ALBUMS':
@@ -31,6 +25,11 @@ const mainReducer = (state = startingState, action) => {
         getAlbums: [...state.getAlbums, action.payload],
       }
 
+    case 'FINISHED_LOADING':
+      return {
+        ...state,
+        finishedLoading: action.payload,
+      }
     default:
       return state
   }
